@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./images/p5.jpg">
+  <style>
+  .slideshow-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.3;
+  }
+
+  .typewriter {
+    display: inline-block;
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end 4;
+  }
+
+  .typing-done {
+    border-right: none !important;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    0%, 100% { border-color: transparent }
+    50% { border-color: white; }
+  }
+
+  .quote-card {
+    background-color: #1f2937;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .quote-card:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+</head>
+<body class="bg-black text-white font-sans scroll-smooth">
+
+  <!-- Background Slideshow -->
+  <img id="slideshow" class="slideshow-bg" src="./images/vio1.jpg" alt="Background Slideshow">
+
+  <script>
+    const slides = ['./images/vio1.jpg', './images/vio2.jpg', './images/vio3.jpg', './images/vio4.jpg','./images/vio7.png','./images/vio8.png'];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      document.getElementById('slideshow').src = slides[index];
+    }, 4000);
+  </script>
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 fixed w-full top-0 z-50">
+    <h1 class="text-xl font-bold">My Portfolio</h1>
+    <ul class="flex gap-4 items-center">
+      <li><a href="index.html" class="hover:text-teal-400 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-teal-400 transition">About</a></li>
+      <li><a href="projects.html" class="hover:text-teal-400 transition">Projects</a></li>
+      <li><a href="contact.html" class="hover:text-teal-400 transition">Contact</a></li>
+      <!-- Theme Switch Button -->
+      <li>
+        <button id="theme-toggle" class="ml-4 p-2 bg-gray-700 rounded hover:bg-gray-600">🌙</button>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+    });
+  </script>
+  <!--updated paragraph section-->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+    <h2 class="text-4xl md:text-6xl font-bold">
+      <span class="typewriter typewriter-1">Hi, I'm Violet</span>
+    </h2>
+
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-6 w-full max-w-5xl">
+      <!-- Profile Image -->
+      <img src="./images/vio1.jpg" alt="Your Photo" class="w-48 h-48 rounded-full shadow-lg border-4 border-white" />
+
+      <!-- Typing Paragraphs -->
+      <div class="text-left md:w-1/2 text-base space-y-3">
+        <p class="typewriter hidden typewriter-2">
+          I'm a Fullstack Developer and a current student at the University of Nairobi.
+        </p>
+        <p class="typewriter hidden typewriter-3">
+          I love creating seamless digital experiences from frontend to backend. “Code is like poetry — it has rhythm, flow, and beauty.”
+        </p>
+        <p class="typewriter hidden typewriter-4">
+          With an eye for design and a mind for logic, I build websites that are both functional and beautiful.
+        </p>
+      </div>
+    </div>
+    </section>
+ 
+    <!-- Audio Player -->
+  <div class="mt-6 flex flex-col items-center">
+      <div class="flex gap-4">
+        <button id="play-button" class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded">
+          ▶ Play relaxing song
+        </button>
+        <button id="pause-button" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+          ⏸ Pause song
+        </button>
+      </div>
+      <audio id="my-audio">
+        <source src="./sound and media/SIMI_-_Duduke_(Official_Video)(360p).mp3" type="audio/mpeg">
+      </audio>
+  </div>
+
+    <script>
+      const audio = document.getElementById('my-audio');
+      document.getElementById('play-button').addEventListener('click', () => {
+        audio.play();
+      });
+      document.getElementById('pause-button').addEventListener('click', () => {
+        audio.pause();
+      });
+    </script>
+
+
+    <!-- Scroll Down Button -->
+    <a href="#quotes-section" class="mt-10 animate-bounce text-teal-300 text-xl">↓ Scroll Down</a>
+  </section>
+
+  <!-- Quotes Section -->
+  <section id="quotes-section" class="min-h-screen px-4 py-16 bg-black bg-opacity-70">
+  <h3 class="text-3xl font-semibold text-center mb-10">Quotes I Love</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div class="quote-card">“You may not control all the events that happen to you, but you can decide not to be reduced by them.”<br>— Maya Angelou</div>
+    <div class="quote-card">“Success is not final, failure is not fatal: It is the courage to continue that counts.”<br>— Winston Churchill</div>
+    <div class="quote-card">“Whether you think you can or you think you can’t, you’re right.”<br>— Henry Ford</div>
+    <div class="quote-card">“The future belongs to those who believe in the beauty of their dreams.”<br>— Eleanor Roosevelt</div>
+    <div class="quote-card">“Do not wait for the perfect moment, take the moment and make it perfect.”<br>— Unknown</div>
+    <div class="quote-card">“In a gentle way, you can shake the world.”<br>— Mahatma Gandhi</div>
+  </div>
+</section>
+
+
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-black bg-opacity-60">
+    <p class="text-sm">&copy; Violet</p>
+  </footer>
+  <script>
+  function startTyping(selector, delay) {
+    const element = document.querySelector(selector);
+    setTimeout(() => {
+      element.classList.remove("hidden");
+      element.classList.remove("typewriter");
+      element.classList.add("typing-done");
+    }, delay);
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const headline = document.querySelector(".typewriter-1");
+    setTimeout(() => {
+      headline.classList.remove("typewriter");
+      headline.classList.add("typing-done");
+    }, 4000);
+
+    startTyping('.typewriter-2', 4200);
+    startTyping('.typewriter-3', 7500);
+    startTyping('.typewriter-4', 11000);
+  });
+</script>
+
+
+
+
+</body>
+</html>

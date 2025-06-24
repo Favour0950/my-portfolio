@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="icon" href="./images/p5.jpg">
+  <style>
+    .bg-overlay::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('./images/dev2.webp') center/cover no-repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="bg-overlay text-white font-sans scroll-smooth">
+    <!-- Background Image with Overlay -->
+    <div class="fixed inset-0 z-[-1]">
+    <img src="./images/dev2.webp" alt="Background" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black opacity-70"></div> <!-- Dark overlay -->
+    </div>
+
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 fixed w-full top-0 z-50">
+    <h1 class="text-xl font-bold">My Portfolio</h1>
+    <ul class="flex gap-4 items-center">
+      <li><a href="index.html" class="hover:text-teal-400 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-teal-400 transition">About</a></li>
+      <li><a href="projects.html" class="hover:text-teal-400 transition">Projects</a></li>
+      <li><a href="contact.html" class="hover:text-teal-400 transition">Contact</a></li>
+      <li>
+        <button id="theme-toggle" class="ml-4 p-2 bg-gray-700 rounded hover:bg-gray-600">🌙</button>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+    });
+  </script>
+
+  <!-- Projects Section -->
+  <section class="pt-24 px-4 pb-16">
+    <h2 class="text-4xl font-bold text-center mb-6">My Projects</h2>
+
+    <!-- Filters -->
+    <div class="flex justify-center gap-4 mb-8 flex-wrap">
+      <button class="filter-btn bg-gray-700 px-4 py-2 rounded" data-filter="all">All</button>
+      <button class="filter-btn bg-gray-700 px-4 py-2 rounded" data-filter="python">Python</button>
+      <button class="filter-btn bg-gray-700 px-4 py-2 rounded" data-filter="web">Web</button>
+      <button class="filter-btn bg-gray-700 px-4 py-2 rounded" data-filter="database">Database</button>
+    </div>
+
+    <!-- Project Cards -->
+    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Project 1 -->
+      <div class="project-card animate__animated animate__fadeInUp" data-category="python">
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <img src="./images/originals.webp" alt="Story Game" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold">The Originals Story Game</h3>
+            <p class="text-sm my-2">A story-based game written in Python, inspired by The Originals series.
+
+            </p>
+            <span class="bg-purple-600 text-xs px-2 py-1 rounded">Python</span>
+            <button class="learn-more mt-4 text-teal-400 block">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card animate__animated animate__fadeInUp" data-category="python">
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <img src="./images/rps.webp" alt="RPS Game" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Rock Paper Scissors</h3>
+            <p class="text-sm my-2">A Python-based command line game simulating rock-paper-scissors.</p>
+            <span class="bg-purple-600 text-xs px-2 py-1 rounded">Python</span>
+            <button class="learn-more mt-4 text-teal-400 block">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card animate__animated animate__fadeInUp" data-category="database">
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <img src="./images/newsp.webp" alt="Oracle Project" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Oracle Database System</h3>
+            <p class="text-sm my-2">An academic project using Oracle to build a functional database system.</p>
+            <span class="bg-green-600 text-xs px-2 py-1 rounded">Database</span>
+            <button class="learn-more mt-4 text-teal-400 block">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card animate__animated animate__fadeInUp" data-category="web">
+        <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <img src="./images/dev1.webp" alt="Practice Website" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Practice Portfolio Website</h3>
+            <p class="text-sm my-2">A responsive site built with HTML, CSS, and Tailwind to showcase my profile.</p>
+            <span class="bg-blue-600 text-xs px-2 py-1 rounded">Web</span>
+            <button class="learn-more mt-4 text-teal-400 block">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="bg-white text-black p-6 rounded-lg max-w-md">
+      <h3 id="modal-title" class="text-2xl font-bold mb-2"></h3>
+      <p id="modal-description" class="text-sm mb-4"></p>
+      <a id="modal-link" href="#" target="_blank" class="text-blue-600 underline">View on GitHub</a>
+      <button id="close-modal" class="mt-4 block bg-red-500 px-4 py-1 rounded text-white ml-auto">Close</button>
+    </div>
+  </div>
+
+  <footer class="text-center py-4 bg-black bg-opacity-60">
+    <p class="text-sm">&copy; Violet</p>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
+    const closeModal = document.getElementById('close-modal');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    document.querySelectorAll('.learn-more').forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const titles = [
+          'The Originals Story Game',
+          'Rock Paper Scissors',
+          'Oracle Database System',
+          'Practice Portfolio Website'
+        ];
+        const descs = [
+          'A branching narrative game that lets you choose your path and outcomes. Written in Python. Based on a series and gives you the freedom to explore different storylines based on your mentor choices. If you are a fan of The Originals, you will love this game.To check out the code, click the link below.',
+          'A fun CLI game of rock-paper-scissors with random logic and scoring. Written in Python. This game allows you to play against the computer, keeping track of your score and the computer\'s score. It\'s a simple yet engaging way to practice Python programming skills.',
+          'A structured relational database schema built using Oracle SQL and PL/SQL procedures. it is a project for a newspaper advertisement company. It includes tables for customers, advertisements, and transactions, with procedures for inserting and retrieving data. This project showcases my ability to design and implement database systems.',
+          'A simple, mobile-friendly web page built using HTML and Tailwind CSS. This project serves as a practice portfolio website, showcasing my skills in web development. It includes a responsive layout, custom styles, and a clean design. The code is structured to be easily readable and maintainable, demonstrating my understanding of modern web technologies.'
+        ];
+        const links = [
+          'https://github.com/Favour0950/originals-repo',
+          'https://github.com/Favour0950/rps-repo',
+          'https://github.com/yourusername/oracle-project',
+          'https://github.com/Favour0950/portfolio-repo'
+        ];
+        modalTitle.textContent = titles[i];
+        modalDesc.textContent = descs[i];
+        modalLink.href = links[i];
+        modal.classList.remove('hidden');
+      });
+    });
+
+    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+  </script>
+
+</body>
+</html>

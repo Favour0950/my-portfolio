@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" href="./images/p5.jpg">
+  <style>
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 0.3;
+    }
+      .photo-popup {
+      opacity: 0;
+      transform: scale(0.8);
+      border: 4px solid #ffffff88; /* semi-transparent white border */
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      animation: popup-in 1s ease-out forwards;
+    }
+
+    @keyframes popup-in {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- Background Image -->
+  <img src="./images/movie.webp" alt="Background" class="bg-overlay">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 fixed w-full top-0 z-50">
+    <h1 class="text-xl font-bold">My Portfolio</h1>
+    <ul class="flex gap-4 items-center">
+      <li><a href="index.html" class="hover:text-teal-400 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-teal-400 transition">About</a></li>
+      <li><a href="projects.html" class="hover:text-teal-400 transition">Projects</a></li>
+      <li><a href="contact.html" class="hover:text-teal-400 transition">Contact</a></li>
+      <li>
+        <button id="theme-toggle" class="ml-4 p-2 bg-gray-700 rounded hover:bg-gray-600">🌙</button>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+    });
+  </script>
+
+  <!-- Contact Section -->
+  <section class="pt-24 px-4 md:px-16 flex flex-col md:flex-row gap-10 items-center">
+    <!-- Image -->
+    <div class="md:w-1/2">
+      <img src="./images/vio1.jpg" alt="Contact" class="w-full max-w-md h-90  object-cover photo-popup shadow-lg rounded-md" />
+
+      <!--<img src="./images/vio1.jpg" alt="Contact Visual" class="w-full max-w-md" />-->
+    </div>
+
+    <!-- Contact Details and Form -->
+    <div class="md:w-1/2 space-y-6">
+      <!-- Social Media Links -->
+      <div class="space-y-2">
+        <h2 class="text-2xl font-bold">Find me on:</h2>
+        <ul class="space-y-2">
+          <li><a href="https://instagram.com/_violetbelike._" target="_blank" class="flex items-center gap-2 hover:text-teal-400"><span>📸</span> Instagram</a></li>
+          <li><a href="https://twitter.com/violetbelike" target="_blank" class="flex items-center gap-2 hover:text-teal-400"><span>🐦</span> Twitter</a></li>
+          <li><a href="https://tiktok.com/@_violetbelike" target="_blank" class="flex items-center gap-2 hover:text-teal-400"><span>🎵</span> TikTok</a></li>
+          <li><a href="https://github.com/Favour0950" target="_blank" class="flex items-center gap-2 hover:text-teal-400"><span>💻</span> GitHub</a></li>
+        </ul>
+      </div>
+
+      <!-- Phone and Email Triggers -->
+      <div class="space-y-2">
+        <a href="tel:+254735143741" class="block hover:text-teal-400">📞 Phone Me</a>
+        <a href="mailto:favourtrish560@gmail.com" class="block hover:text-teal-400">✉️ Email Me</a>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contact-form" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
+        <input type="email" name="email" placeholder="Your Email" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
+        <textarea name="message" placeholder="Send me a message or leave a comment" required class="w-full p-2 rounded bg-gray-800 border border-gray-600"></textarea>
+        <button type="submit" class="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600">Send</button>
+      </form>
+      <p id="form-message" class="text-sm"></p>
+    </div>
+  </section>
+
+  <!-- Final Touch Message -->
+  <footer class="text-center py-4 mt-12">
+    <p class="text-sm italic">Thank you for visiting! Let’s build something amazing together. I hope you had an amazing time</p>
+  </footer>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("ZXjyKA_QlJUDb_OCQ");
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_s14km7m', 'template_2jsevj5', this)
+        .then(() => {
+          document.getElementById('form-message').textContent = "I appreciate your feedback!";
+        }, (error) => {
+          if (error.text.includes('network')) {
+            document.getElementById('form-message').textContent = "Network error. Please try again.";
+          } else {
+            document.getElementById('form-message').textContent = "Failed to send. Please try again.";
+          }
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Violet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./images/p5.jpg">
+  <style>
+    .background-image {
+      background: url('./images/vio1.jpg') no-repeat center center/cover;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      z-index: -1;
+    }
+    .carousel-slide {
+      transition: transform 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans scroll-smooth">
+
+  <div class="background-image"></div>
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 fixed w-full top-0 z-50">
+    <h1 class="text-xl font-bold">My Portfolio</h1>
+    <ul class="flex gap-4 items-center">
+      <li><a href="index.html" class="hover:text-teal-400 transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-teal-400 transition font-bold">About</a></li>
+      <li><a href="projects.html" class="hover:text-teal-400 transition">Projects</a></li>
+      <li><a href="contact.html" class="hover:text-teal-400 transition">Contact</a></li>
+      <li>
+        <button id="theme-toggle" class="ml-4 p-2 bg-gray-700 rounded hover:bg-gray-600">🌙</button>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+    });
+  </script>
+  <!-- Personal Header Card -->
+  <section class="pt-28 pb-12 px-4">
+    <div class="max-w-4xl mx-auto bg-gray-800 bg-opacity-80 p-6 rounded-lg shadow-lg animate__animated animate__fadeInUp flex flex-col md:flex-row items-center">
+      <img src="./images/p5.jpg" alt="Profile Photo" class="w-32 h-32 rounded-full object-cover mb-4 md:mb-0 md:mr-6">
+      <div>
+        <h2 class="text-2xl font-bold mb-2">Get to Know Me Personally</h2>
+        <p>I’m someone who values meaningful connections, creativity, and laughter. Whether I’m leading a team, volunteering, or enjoying a peaceful moment with a book or music, I thrive when I’m both giving back and expressing myself. My world blends quiet reflection with bold ideas — and I’m always excited to learn something new.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Pop-Up Section -->
+  <section class="px-4 py-10">
+    <h2 class="text-3xl font-semibold text-center mb-6">My Skills</h2>
+    <div id="skills-container" class="flex flex-wrap justify-center gap-4"></div>
+  </section>
+  <script>
+    const skills = ['Team Leadership', 'Public Speaking', 'Event Planning', 'Graphic Design', 'Problem Solving', 'Web Development', 'Time Management'];
+    const container = document.getElementById('skills-container');
+    let skillIndex = 0;
+
+    function showSkill() {
+      if (skillIndex < skills.length) {
+        const div = document.createElement('div');
+        div.className = 'bg-teal-500 text-black font-semibold px-4 py-2 rounded animate__animated animate__fadeIn';
+        div.textContent = skills[skillIndex++];
+        container.appendChild(div);
+        setTimeout(showSkill, 500);
+      }
+    }
+    showSkill();
+  </script>
+
+  <!-- Volunteer Experience Section -->
+  <section class="py-16 px-6 bg-black bg-opacity-30">
+    <h2 class="text-3xl font-semibold text-center mb-12">Volunteer Experience</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Rotaract Member -->
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold mb-2">Rotaract Member</h4>
+        <p class="mb-2">I participated in various social initiatives through Rotaract. I've made friends, met new people, and attended lots of activities.</p>
+        <button onclick="toggleText('member-details')" class="text-teal-400 hover:underline">Learn More</button>
+        <div id="member-details" class="hidden mt-3 space-y-3">
+          <p>I engaged in organizing community cleanups, blood drives, and mentorship programs for underprivileged youth.</p>
+          <a href="https://www.rotary.org" target="_blank" class="text-blue-400 underline">Visit Rotaract Website</a>
+          <img src="./images/rtr.JPG" alt="Rotaract Event" class="w-full h-60 object-cover rounded">
+        </div>
+      </div>
+
+      <!-- Team Leader -->
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold mb-2">Team Leader</h4>
+        <p class="mb-2">Led a team of students to execute large-scale community projects.</p>
+        <button onclick="toggleText('president-details')" class="text-teal-400 hover:underline">Learn More</button>
+        <div id="president-details" class="hidden mt-3 space-y-3">
+          <p>I coordinated partnerships, organized fundraisers, and helped plan university-wide volunteer days.</p>
+          <a href="https://rotary.org/about/" target="_blank" class="text-blue-400 underline">About Rotaract Leadership</a>
+          <img src="./images/rtr2 (2).jpg" alt="President Event" class="w-full h-60 object-cover rounded">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="px-6 pb-12">
+    <div class="max-w-3xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold mb-2">Education</h3>
+      <p>I studied at the  University of Nairobi, where I pursued a Bachelor of Science in Computer science. My time there shaped my professional goals and personal values.</p>
+      <a href="./RESUME.4.2.docx" target="_blank" class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">View Resume</a>
+    </div>
+  </section>
+
+  <!-- Activities Carousel -->
+  <section class="px-4 py-12">
+  <h2 class="text-3xl font-bold text-center mb-8">Things I Love Doing</h2>
+  <div class="relative w-full max-w-6xl mx-auto overflow-hidden">
+    <div id="carousel" class="flex transition-transform duration-500 ease-in-out"></div>
+    <div class="flex justify-between mt-4 px-4">
+      <button onclick="prevSlide()" class="text-3xl md:text-4xl">⬅️</button>
+      <button onclick="nextSlide()" class="text-3xl md:text-4xl">➡️</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const activities = [
+    { title: 'Photography', desc: 'Capturing beauty in everyday moments.', img: './images/flower.png' },
+    { title: 'Picnics', desc: 'Relaxing outdoors with friends and food.', img: './images/picnic.png' },
+    { title: 'Reading', desc: 'Diving into fiction and self-help books.', img: './images/books.webp' },
+    { title: 'Cinema Visits', desc: 'Watching stories unfold on the big screen.', img: './images/cinema.png' },
+    { title: 'Music', desc: 'Listening to all kinds of tunes.', img: './images/music.png' },
+    { title: 'Trying Restaurants', desc: 'Exploring new flavors and cuisines.', img: './images/restaurants.png' },
+    { title: 'Shopping', desc: 'Finding new things to buy in malls and shops is fun ', img: './images/shopping.png' },
+    { title: 'Hanging out with friends and family', desc: 'Enjoying everyone else’s company and laughing.', img: './images/friends13.png' },
+    { title: 'Exploring', desc: 'Visiting new places and cultures.', img: './images/museum.png' },
+    { title: 'Listening to podcasts and tv shows', desc: 'Getting insight from others while relaxing and having fun.', img: './images/podcast.png' },
+    { title: 'Attending Rotaract meetings', desc: 'A fun way to spend my evenings whether a talk or a normal meet', img: './images/rtr2event.jpg' },
+  ];
+
+  const carousel = document.getElementById('carousel');
+  activities.forEach(act => {
+    const card = document.createElement('div');
+    card.className = 'w-full sm:w-1/2 flex-shrink-0 px-2 box-border';
+    card.innerHTML = `
+      <div class="bg-gray-800 p-4 sm:p-6 rounded-xl text-center h-full flex flex-col justify-between">
+        <img src="${act.img}" alt="${act.title}" class="rounded mb-4 mx-auto w-full max-h-48 object-contain sm:object-cover">
+        <h3 class="text-lg sm:text-xl font-bold break-words">${act.title}</h3>
+        <p class="text-sm sm:text-base text-gray-300 mt-2 break-words">${act.desc}</p>
+      </div>
+    `;
+    carousel.appendChild(card);
+  });
+
+  let slideIndex = 0;
+  function showSlides() {
+    const isMobile = window.innerWidth < 640;
+    const offset = isMobile ? 100 : 50; // 100% for 1 card on mobile, 50% for 2 cards on larger screens
+    carousel.style.transform = `translateX(-${slideIndex * offset}%)`;
+  }
+
+  function nextSlide() {
+    const visibleCards = window.innerWidth < 640 ? 1 : 2;
+    slideIndex = (slideIndex + visibleCards) % activities.length;
+    showSlides();
+  }
+
+  function prevSlide() {
+    const visibleCards = window.innerWidth < 640 ? 1 : 2;
+    slideIndex = (slideIndex - visibleCards + activities.length) % activities.length;
+    showSlides();
+  }
+
+  window.addEventListener('resize', showSlides);
+  showSlides();
+</script>
+  
+
+  <!-- Friends Image Grid -->
+  <section class="px-6 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Moments with Friends</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 animate-pulse">
+      <!-- Example Friend Image -->
+      <img src="./images/friends1.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends2.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends3.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends4.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends5.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends6.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends7.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends8.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends9.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends10.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends11.jpg" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <img src="./images/friends12.png" class="w-full h-32 object-cover border border-white cursor-pointer transition duration-300 hover:scale-105" onclick="zoomImage(this.src)" />
+      <!-- Add 9+ more -->
+    </div>
+  </section>
+
+  <!-- Lightbox Pop-up -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center hidden z-50">
+    <img id="lightbox-img" class="max-h-[80vh] max-w-[80vw] rounded-lg shadow-lg">
+  </div>
+
+  <script>
+    function zoomImage(src) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = src;
+      lightbox.classList.remove("hidden");
+    }
+    document.getElementById("lightbox").addEventListener("click", () => {
+      document.getElementById("lightbox").classList.add("hidden");
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-black bg-opacity-60">
+    <p class="text-sm">&copy; Violet</p>
+  </footer>
+  <script>
+  function toggleText(id, btn) {
+    const el = document.getElementById(id);
+    el.classList.toggle('hidden');
+
+    // Toggle button text
+    if (!el.classList.contains('hidden')) {
+      btn.textContent = 'Show Less';
+    } else {
+      btn.textContent = 'Learn More';
+    }
+  }
+</script>
+
+
+
+</body>
+</html>
