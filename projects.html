@@ -186,6 +186,29 @@
 
     closeModal.addEventListener('click', () => modal.classList.add('hidden'));
   </script>
+  <!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollTopBtn" 
+  class="hidden fixed bottom-6 right-6 bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full shadow-lg z-50 transition-opacity duration-300">
+  ↑ Top
+</button>
+
+<script>
+  // Show button on scroll
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTopBtn');
+    if (window.scrollY > 300) {
+      btn.classList.remove('hidden');
+    } else {
+      btn.classList.add('hidden');
+    }
+  });
+
+  // Scroll to top function
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
 
 </body>
 </html>
