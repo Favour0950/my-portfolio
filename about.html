@@ -88,7 +88,7 @@
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h4 class="text-xl font-bold mb-2">Rotaract Member</h4>
         <p class="mb-2">I participated in various social initiatives through Rotaract. I've made friends, met new people, and attended lots of activities.</p>
-        <button onclick="toggleText('member-details')" class="text-teal-400 hover:underline">Learn More</button>
+        <button onclick="toggleText('member-details',this)" class="text-teal-400 hover:underline">Learn More</button>
         <div id="member-details" class="hidden mt-3 space-y-3">
           <p>I engaged in organizing community cleanups, blood drives, and mentorship programs for underprivileged youth.</p>
           <a href="https://www.rotary.org" target="_blank" class="text-blue-400 underline">Visit Rotaract Website</a>
@@ -100,7 +100,7 @@
       <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h4 class="text-xl font-bold mb-2">Team Leader</h4>
         <p class="mb-2">Led a team of students to execute large-scale community projects.</p>
-        <button onclick="toggleText('president-details')" class="text-teal-400 hover:underline">Learn More</button>
+        <button onclick="toggleText('president-details',this)" class="text-teal-400 hover:underline">Learn More</button>
         <div id="president-details" class="hidden mt-3 space-y-3">
           <p>I coordinated partnerships, organized fundraisers, and helped plan university-wide volunteer days.</p>
           <a href="https://rotary.org/about/" target="_blank" class="text-blue-400 underline">About Rotaract Leadership</a>
@@ -228,16 +228,11 @@
   </footer>
   <script>
   function toggleText(id, btn) {
-    const el = document.getElementById(id);
-    el.classList.toggle('hidden');
+  const el = document.getElementById(id);
+  const isHidden = el.classList.toggle('hidden');
+  btn.textContent = isHidden ? 'Learn More' : 'Show Less';
+}
 
-    // Toggle button text
-    if (!el.classList.contains('hidden')) {
-      btn.textContent = 'Show Less';
-    } else {
-      btn.textContent = 'Learn More';
-    }
-  }
 </script>
 
 
