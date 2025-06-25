@@ -34,7 +34,7 @@ A modern, responsive portfolio website showcasing my journey as a Fullstack Deve
 - **JavaScript**: Interactive functionality and DOM manipulation
 - **Tailwind CSS**: Utility-first CSS framework for rapid styling
 - **Animate.css**: Pre-built CSS animations
-- **EmailJS**: Contact form email functionality
+- **Formspree**: Contact form email functionality
 - **Font Awesome**: Icon library for social media links
 
 ## 📂 Project Structure
@@ -110,7 +110,7 @@ portfolio/
 
 ## 📧 Contact Form Integration
 
-The contact form uses EmailJS for sending messages directly to email:
+The contact form uses formspree for sending messages directly to email:
 
 - Service ID: `service_s14km7m`
 - Template ID: `template_2jsevj5`
@@ -136,8 +136,8 @@ The contact form uses EmailJS for sending messages directly to email:
 1. **Clone the Repository**
 
 ```bash
-   git clone https://github.com/Favour0950/portfolio-repo
-   cd portfolio-repo
+   git clone https://github.com/Favour0950/my-portfolio-repo
+   cd my-portfolio-repo
    ```
 
 1. **Open in Browser**
