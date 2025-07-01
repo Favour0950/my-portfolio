@@ -119,7 +119,7 @@ The contact form uses formspree for sending messages directly to email:
 ## 🌐 Social Media Links
 
 - **Instagram**: [@_violetbelike._](https://instagram.com/_violetbelike._)
-- **Twitter**: [@violetbelike](https://twitter.com/violetbelike)
+- **Twitter**: [@violetbelike](https://twitter.com/violet_be_like)
 - **TikTok**: [@_violetbelike](https://tiktok.com/@_violetbelike)
 - **GitHub**: [Favour0950](https://github.com/Favour0950)
 
